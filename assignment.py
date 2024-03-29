@@ -94,11 +94,16 @@ products = {
 }
 
 def search_products(products, name):
+    found = []
     for id, description in products.items():
         if name in description["name"]:
-            print(f"{name} found in products with id {id}")
+            found.append(True)
         else:
-            print(f"{name} was not found in product # {id}")
+            found.append(False)
+    if True not in found:
+        print(f"{name} was not found")
+    else:
+        print(f"{name} found in products")
 
 search_products(products, "Laptop")
 search_products(products, "Pants")
